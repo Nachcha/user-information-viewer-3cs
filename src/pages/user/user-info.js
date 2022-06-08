@@ -3,6 +3,7 @@ import AvatarCard from '../../components/avatar-card/avatar-card';
 import { useLocation } from 'react-router-dom';
 import InfoCard from '../../components/info-card/info-card';
 import { getUser } from '../../services/api-services/user-service';
+import SubLayout from '../../layouts/sub/sub-layout';
 
 const UserInfo = () => {
 
@@ -23,8 +24,8 @@ const UserInfo = () => {
     useEffect(() => {
         getUser(location.state.id)
             .then((response) => {
-                let _data = userData.data;
                 if (response.data) {
+                    let _data = userData.data;
                     _data["id"] = response.data.data.id;
                     _data["email"] = response.data.data.email;
                     _data["first_name"] = response.data.data.first_name;
@@ -32,20 +33,21 @@ const UserInfo = () => {
                     _data["avatar"] = response.data.data.avatar;
                     userData.data = _data;
                     setUserData({ ...userData });
-                    console.log("userInfo: ", response.data.data, userData);
+                } else {
+                    alert("Data fetching error!", "An error occered while fetching data. Please try again relading the page.");
                 }
             })
             .catch((error) => {
-                console.log("userInfo error: ", error);
+                alert("Data fetching error!", "An error occered while fetching data. Please try again relading the page.");
             })
     }, [location.state.id]);
 
     return (
-        <div>
+        <SubLayout>
             <div>User information page</div>
             <AvatarCard src={userData.data.avatar} />
             <InfoCard data={userData.data} />
-        </div>
+        </SubLayout>
     );
 }
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-const AvatarCard = (src) => {
+const AvatarCard = ({src}) => {
 
     return (
         <div>
-            <img src={src.src} alt="avatar" />
+            <img src={src} alt="avatar" />
         </div>
     );
 }

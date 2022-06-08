@@ -20,9 +20,7 @@ const Pagination = ({ pageInfo, setPage }) => {
             <text>page: {pageInfo.page}</text>
             <text> of {pageInfo.total_pages}</text>
             <button disabled={pageInfo.page === 1} onClick={onPrevClick}>prev</button>
-            <text>{pageInfo.per_page} : {pageInfo.total}</text>
             <button disabled={pageInfo.page === pageInfo.total_pages} onClick={onNextClick}>next</button>
-            <text>support : {JSON.stringify(pageInfo.support)}</text>
         </div>
 
     );
