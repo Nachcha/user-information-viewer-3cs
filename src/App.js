@@ -8,12 +8,12 @@ import {
 import HomePage from './pages/home/home-page';
 import UserInfo from './pages/user/user-info';
 import NotFound from './pages/404/404';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
 
   return (
     <Router>
-      <main>
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="home" element={<HomePage />} />
@@ -21,7 +21,6 @@ function App() {
           <Route path="404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/404" />} />
         </Routes>
-      </main>
     </Router>
   );
 }

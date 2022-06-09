@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom';
 import InfoCard from '../../components/info-card/info-card';
 import { getUser } from '../../services/api-services/user-service';
 import SubLayout from '../../layouts/sub/sub-layout';
+import { Col, Container, Row } from 'react-bootstrap';
+import styles from './styles'
 
 const UserInfo = () => {
 
@@ -44,9 +46,16 @@ const UserInfo = () => {
 
     return (
         <SubLayout>
-            <div>User information page</div>
-            <AvatarCard src={userData.data.avatar} />
-            <InfoCard data={userData.data} />
+            <Container style={styles.mainContainer}>
+                <Row>
+                    <Col xs={12} md={5} lg={5} style={styles.avatarContainer}>
+                        <AvatarCard src={userData.data.avatar} />
+                    </Col>
+                    <Col xs={12} md={7} lg={7} style={styles.infomationCard}>
+                        <InfoCard data={userData.data} />
+                    </Col>
+                </Row>
+            </Container>
         </SubLayout>
     );
 }

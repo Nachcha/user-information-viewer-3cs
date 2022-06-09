@@ -1,17 +1,30 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+import { Card, FormLabel, Row } from 'react-bootstrap';
+import styles from './styles';
+
 
 const UserCard = ({ user }) => {
     const navigate = useNavigate();
     return (
-        <div onClick={() => { navigate('/user', { state: { ...user } }) }}>
-            <img src={user.avatar} alt="avatar" />
-            <div>
-                <div>{user.first_name + "\t"} {user.last_name + "\t"}</div>
-                <div>{user.email}</div>
+        <Card style={styles.userCard} >
+            <div onClick={() => { navigate('/user', { state: { ...user } }) }}>
+                <Card style={styles.frameCard} >
+                    <Card style={styles.imageCard} >
+                        <img src={user.avatar} alt="avatar" />
+                    </Card>
+                </Card>
+                <div style={{ margin: '20px' }}>
+                    <Row>
+                        <FormLabel style={styles.nameLabel}>{user.first_name}</FormLabel>
+                    </Row>
+                    <Row>
+                        <FormLabel>{user.email}</FormLabel>
+                    </Row>
+                </div>
             </div>
-        </div>
+        </Card>
     );
 }
 

@@ -1,9 +1,26 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Navbar, NavbarBrand } from 'react-bootstrap';
+import styles from './styles';
 
-const MainLayout = () => {
+const MainLayout = ({ children, bottom }) => {
+    const hasWindow = typeof window !== 'undefined';
+    const width = hasWindow ? window.innerWidth : null;
+    const height = hasWindow ? window.innerHeight : null;
     return (
-        <div> textInComponent </div>
+        <div style={{height: height}}>
+            <header>
+                <Navbar style={styles.navBar}>
+                    <NavbarBrand style={styles.navBarBrand}>Home</NavbarBrand>
+                </Navbar>
+            </header>
+            <main>
+                {children}
+            </main>
+            <bottom>
+                {bottom}
+            </bottom>
+        </div>
     );
 }
 
-export default componentName;
+export default MainLayout;

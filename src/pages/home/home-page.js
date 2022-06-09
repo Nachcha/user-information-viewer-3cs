@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
 import Pagination from '../../components/pagination/pagination';
 import UserCard from '../../components/user-card/user-card';
+import MainLayout from '../../layouts/main/main-layout';
 import { getUserList } from '../../services/api-services/user-service';
 
 const HomePage = () => {
@@ -42,15 +44,24 @@ const HomePage = () => {
     }
 
     return (
-        <div>Home Page
-            {userList.map((user) => {
-                return <UserCard key={user.id} user={user} />
-            })}
-            <Pagination
-                pageInfo={pageInfo}
-                setPage={setPage}
-            />
-        </div>
+        <MainLayout
+            bottom={<Pagination pageInfo={pageInfo} setPage={setPage} />}
+        >
+            <div>
+                <Container>
+                    {/* Stack the columns on mobile by making one full-width and the other half-width */}
+                    <Row>
+                        {userList.map((user) => {
+                            return (
+                                <Col key={user.id} xs={6} md={4} lg={3}>
+                                    <UserCard user={user} />
+                                </Col>
+                            )
+                        })}
+                    </Row>
+                </Container>
+            </div>
+        </MainLayout>
     );
 }
 

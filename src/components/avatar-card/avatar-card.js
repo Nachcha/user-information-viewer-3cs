@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import { Card } from 'react-bootstrap';
+import styles from './styles';
 
-const AvatarCard = ({src}) => {
+const AvatarCard = ({ src }) => {
 
     return (
-        <div>
-            <img src={src} alt="avatar" />
-        </div>
+        <Card style={styles.outterCard}>
+            <Card style={styles.innerCard}>
+                <img style={styles.avatarImage} src={src} alt="avatar" />
+            </Card>
+        </Card>
     );
 }
 
