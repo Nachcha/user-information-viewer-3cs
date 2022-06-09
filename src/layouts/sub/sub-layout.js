@@ -15,7 +15,7 @@ const SubLayout = ({ children }) => {
                 </Navbar>
                 <Navbar>
                     <Navbar.Toggle area-aria-controls='basic-navbar-nav' />
-                    <NavbarBrand style={styles.navbarBrand}>User information page</NavbarBrand>
+                    <NavbarBrand style={styles.navbarBrand}>User information</NavbarBrand>
                 </Navbar>
             </header>
             <main>

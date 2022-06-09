@@ -12,6 +12,10 @@ const MainLayout = ({ children, bottom }) => {
                 <Navbar style={styles.navBar}>
                     <NavbarBrand style={styles.navBarBrand}>Home</NavbarBrand>
                 </Navbar>
+                <Navbar>
+                    <Navbar.Toggle area-aria-controls='basic-navbar-nav' />
+                    <NavbarBrand style={styles.navbarBrandTwo}>Users</NavbarBrand>
+                </Navbar>
             </header>
             <main>
                 {children}

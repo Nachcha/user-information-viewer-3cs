@@ -13,7 +13,8 @@ const styles = {
     },
     navBarBrand: {
         alignItems: 'flex-end',
-    }
+    },
+    navbarBrandTwo: { marginLeft: 20 }
 };
 
 export default styles;
